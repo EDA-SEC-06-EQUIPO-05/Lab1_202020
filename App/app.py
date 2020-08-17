@@ -101,12 +101,18 @@ def countElementsFilteredByColumn(criteria, column, lst):
         print("Tiempo de ejecución ",t1_stop-t1_start," segundos")
     return counter
 
-def countElementsByCriteria(criteria, column, lst):
+def countElementsByCriteria(criteria:str, column:int, lst:list)-> int:
     """
     Retorna la cantidad de elementos que cumplen con un criterio para una columna dada
     """
-    return 0
-
+    tiempo_inicial= process_time()
+    cuenta_elementos= 0
+    for informacion in lst:
+        if informacion[column]==criteria:
+            cuenta_elementos+= 1
+    tiempo_final= process_time()
+    print("Tiempo de ejecucion: "+str(tiempo_final-tiempo_inicial)+" segundos")
+    return cuenta_elementos
 
 def main():
     """
